@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider), typeof(Rigidbody))]
 public class Jump : MonoBehaviour
 {
+    public AudioSource audioSource;
     public float jumpStrength = 5;
     public KeyCode jumpKey = KeyCode.Space;
 
@@ -21,6 +22,7 @@ public class Jump : MonoBehaviour
         if (Input.GetKeyDown(jumpKey) && isGrounded)
         {
             rb.AddForce(rb.transform.up * jumpStrength, ForceMode.Impulse);
+            audioSource.Play();
         }
     }
 
